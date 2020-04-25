@@ -49,10 +49,10 @@ class MovieListViewController: UIViewController {
     }
     
     private func showDetailView(for movieID: Int) {
+   
+        let storyboard = UIStoryboard(storyboard: .detail)
         
-        guard let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MovieDetailViewController") as? MovieDetailViewController else {
-            fatalError("Couldn't instantiate view controller with identifier ")
-        }
+        let viewController: MovieDetailViewController = storyboard.instantiateViewController()
         viewController.movieID = movieID
         self.navigationController?.pushViewController(viewController, animated: true)
     }
